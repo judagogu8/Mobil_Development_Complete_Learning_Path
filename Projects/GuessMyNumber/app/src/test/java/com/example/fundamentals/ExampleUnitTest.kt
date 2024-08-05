@@ -1,4 +1,4 @@
-package com.example.guessmynumber
+package com.example.fundamentals
 
 import org.junit.Test
 
