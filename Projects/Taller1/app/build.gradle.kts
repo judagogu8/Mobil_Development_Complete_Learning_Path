@@ -1,24 +1,22 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("kotlin-parcelize")
 }
 
+
 android {
-    namespace = "com.example.fundamentals"
+    namespace = "com.example.taller_1"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.fundamentals"
+        applicationId = "com.example.taller_1"
         minSdk = 24
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
-
-    buildFeatures{
-        viewBinding=true
     }
 
     buildTypes {
@@ -30,6 +28,13 @@ android {
             )
         }
     }
+
+    // Debemos habilitar  viewBinding para poder usar la clase generada por el plugin de viewBinding,
+    // el cual nos permite acceder a los elementos de la vista de manera segura.
+    buildFeatures {
+        viewBinding = true
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
@@ -37,20 +42,19 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
-
-    buildFeatures {
-        viewBinding=true
-    }
 }
 
 dependencies {
-
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.firebase.crashlytics.buildtools)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation(libs.gson)
+    implementation(libs.picasso)
+    implementation(libs.material)
 }
